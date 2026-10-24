@@ -1,0 +1,5 @@
+"use client"
+import { Reveal, SectionLabel } from "./Editorial"
+export default function Achievements() {
+    return <section id="achievements" className="editorial-section recognition"><SectionLabel number="05" aside="LEARNING BY SHOWING UP">BEYOND THE BUILD</SectionLabel><Reveal><h2 className="display">STAY CURIOUS.<br /><em>STAY INVOLVED.</em></h2></Reveal><div className="recognition-list"><Reveal><article><span className="micro">01 / NATIONAL HACKATHON</span><div><h3>VOID FRAME 2.0</h3><p>24-hour web-based hackathon organized by IEDC, Holy Grace Academy of Engineering, Mala.</p><span className="record-type">Certificate of Participation</span></div><time className="micro">04—05 FEB 2026</time></article></Reveal><Reveal><article><span className="micro">02 / CYBERSECURITY WORKSHOP</span><div><h3>The 360° Cyber Blueprint</h3><p>Modern threat landscapes and ethical hacking methodologies. Organized by Offenscanso Hackers Academy Pvt Ltd.</p><span className="record-type">Certificate of Participation</span></div><time className="micro">14 FEB 2026</time></article></Reveal></div></section>
+}
