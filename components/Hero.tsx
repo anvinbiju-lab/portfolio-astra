@@ -120,6 +120,8 @@ export default function Hero() {
     const phase2X = useTransform(scrollYProgress, [0.3, 0.4], [40, 0])
 
     const phase3Opacity = useTransform(scrollYProgress, [0.7, 0.85], [0, 1])
+    // Clear the shared upper-left area before the finale tagline enters.
+    const identityOpacity = useTransform(scrollYProgress, [0.6, 0.7], [1, 0])
     const phase3Y = useTransform(scrollYProgress, [0.7, 0.85], [30, 0])
     const [phase, setPhase] = useState(0)
     useMotionValueEvent(scrollYProgress, "change", value => setPhase(value < 0.25 ? 0 : value < 0.65 ? 1 : 2))
@@ -131,7 +133,7 @@ export default function Hero() {
             <div className="sticky top-0 h-screen w-full overflow-hidden bg-black flex items-center justify-center">
                 <canvas ref={canvasRef} className="absolute inset-0 z-0 opacity-60" aria-label="Cinematic portrait of Anvin Biju, advanced by scrolling" role="img" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-[1]" />
-                <div className="cinema-top micro"><span>ANVIN BIJU / PERSONAL DIGITAL SPACE</span><span>KERALA, INDIA · 10.76° N</span></div>
+                <div className="cinema-top micro"><motion.span style={{ opacity: identityOpacity }} aria-hidden={phase === 2}>ANVIN BIJU / PERSONAL DIGITAL SPACE</motion.span><span>KERALA, INDIA · 10.76° N</span></div>
                 <motion.div style={{ opacity: nameOpacity, scale: nameScale }} className="cinema-phase cinema-intro" aria-hidden={phase !== 0}>
                     <span className="micro cinema-eyebrow">CYBERSECURITY ENGINEER & DEVELOPER</span>
                     <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="display">ANVIN<br /><em>BIJU.</em></motion.h1>
